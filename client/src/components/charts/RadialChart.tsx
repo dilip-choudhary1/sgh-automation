@@ -46,17 +46,32 @@ export default function RadialChart() {
     itemIdentifier: PieItemIdentifier,
     item: DefaultizedPieValueType,
   ) => {
-    let itemId = itemIdentifier.seriesId.slice(-1)
-    if(itemId > 2){
+    // Check if seriesId is a string before using slice
+    let itemId: string | number;
+  
+    if (typeof itemIdentifier.seriesId === 'string') {
+      itemId = itemIdentifier.seriesId.slice(-1); // Slice the last character if it's a string
+    } else {
+      // If it's a number, you can assign it directly
+      itemId = itemIdentifier.seriesId;
+    }
+  
+    // Convert itemId to number if it's still a string, and continue
+    const numericItemId = Number(itemId);
+  
+    if (numericItemId > 2) {
       setHighlight(
-        <span className='text-yellow-500'>
-          {`${data[itemId-3][0].label} - ${data[itemId-3][0].value * 100}%`}
+        <span className="text-yellow-500">
+          {`${data[numericItemId - 3][0].label} - ${
+            data[numericItemId - 3][0].value * 100
+          }%`}
         </span>
-      )
-
-      console.log(highlight)
+      );
+  
+      console.log(highlight);
     }
   };
+  
 
 
   const StyledText = styled('text')(({ }) => ({
