@@ -7,10 +7,10 @@ import NotificationTile from "./NotificationTile";
 import RadialChart from "./charts/RadialChart";
 import DonughtChart from "./charts/DonughtChart";
 import { Stack } from "@mui/material";
-import { LineChart } from "@mui/x-charts";
+// import { LineChart } from "@mui/x-charts";
 import CategoryDistribution from "./charts/LineChart";
 import CheckboxLegend from "./CheckboxLegend";
-import { useEffect, useState } from "react";
+import {  useState } from "react";
 
 
 

@@ -14,7 +14,7 @@ export default function RegisterForm({ }) {
         register,
         handleSubmit,
         formState: { errors },
-        setError,
+        // setError,
     } = useForm<registerFormData>({
         resolver: zodResolver(registerFormSchema)
     });
@@ -22,7 +22,7 @@ export default function RegisterForm({ }) {
     const dispatch = useDispatch();
 
 
-    const onSubmit = async (data: registerFormData) => {
+    const onSubmit = async () => {
     }
 
 
@@ -32,7 +32,7 @@ export default function RegisterForm({ }) {
             onSubmit={handleSubmit(onSubmit)}
         >
             <Link className="absolute right-7 top-7 text-[1.5rem]"
-                onClick={(e) => { dispatch(hideLoginForm()) }}
+                onClick={() => { dispatch(hideLoginForm()) }}
                 to={"/"}
             >
                 <MdClose />

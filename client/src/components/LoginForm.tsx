@@ -14,7 +14,7 @@ export default function LoginForm({ }) {
         register,
         handleSubmit,
         formState: { errors },
-        setError,
+        // setError,
     } = useForm<loginFormData>({
         resolver: zodResolver(loginFormSchema)
     });
@@ -23,7 +23,7 @@ export default function LoginForm({ }) {
     const navigate = useNavigate();
 
 
-    const onSubmit = async (data: loginFormData) => {
+    const onSubmit = async ( ) => {
         console.log("SUCCESS");
         navigate("/user/:423")
     }
@@ -36,7 +36,7 @@ export default function LoginForm({ }) {
             onSubmit={handleSubmit(onSubmit)}
         >
             <Link className="absolute right-7 top-7 text-[1.5rem]"
-                onClick={(e) => { dispatch(hideLoginForm()) }}
+                onClick={() => { dispatch(hideLoginForm()) }}
                 to={"/"}
             >
                 <MdClose />

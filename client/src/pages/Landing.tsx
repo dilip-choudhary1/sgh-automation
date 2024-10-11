@@ -1,5 +1,5 @@
 
-import { useState } from "react"
+// import { useState } from "react"
 import heroCarnival from "../assets/hero-carnival.png"
 import heroLantern from "../assets/hero-lantern.png"
 import heroLeft from "../assets/hero-left.png"
@@ -13,7 +13,7 @@ import { showLoginForm } from "../features/loginFormDisplaySlice"
 
 
 export default function Landing() {
-    const [formDisplay, setFormDisplay] = useState(false)
+    // const [] = useState(false)
     const loginFormDisplay = useSelector((state: RootState) => state.loginFormDisplay.value) 
     const dispatch = useDispatch()
 

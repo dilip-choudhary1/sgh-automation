@@ -14,7 +14,7 @@ import { useRef, useEffect } from 'react';
 import { toggle } from '../features/themeSlice';
 import { RootState } from "../app/store"
 import { hideLoginForm } from '../features/loginFormDisplaySlice';
-import { IoMdArrowDropright } from "react-icons/io";
+// import { IoMdArrowDropright } from "react-icons/io";
 
 
 
@@ -70,7 +70,7 @@ export default function UserLayout({ }) {
         themeBtn.current.style.justifyContent = theme == "light" ? "flex-start" : "flex-end";
     }, [theme])
 
-    const toggleTheme = (e: any) => {
+    const toggleTheme = () => {
         if (theme == "light") {
             document.documentElement.classList.add('dark')
         } else {
@@ -88,7 +88,7 @@ export default function UserLayout({ }) {
             {
                 <div
                     className={`bg-blue-1 dark:bg-blue-1-dark absolute h-screen overflow-y-hidden z-10 shadow-2xl sidebar p-10 pt-8  ${sidebarOpen ? "w-fit" : "w-5 p-0 bg-transparent opacity-0"}`}
-                    onMouseEnter={(e) => setSidebarOpen(true)}
+                    onMouseEnter={() => setSidebarOpen(true)}
                 >
 
 

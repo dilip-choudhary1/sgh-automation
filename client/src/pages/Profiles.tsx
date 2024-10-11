@@ -1,7 +1,7 @@
 import ProfileDisplay from "../components/ProfileDisplay"
 import { IoSearch } from "react-icons/io5";
 import { userType } from "../types";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useSelector } from "react-redux";
 import { RootState } from "../app/store";
 

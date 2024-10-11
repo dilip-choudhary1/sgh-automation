@@ -2,7 +2,7 @@
 import * as React from 'react';
 import { PieChart } from '@mui/x-charts/PieChart';
 import { useDrawingArea } from '@mui/x-charts/hooks';
-import { createTheme, styled } from '@mui/material/styles';
+import {  styled } from '@mui/material/styles';
 import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../app/store';
@@ -42,29 +42,18 @@ export default function RadialChart() {
   }, [theme])
 
   const handleClick = (
-    event: React.MouseEvent<SVGPathElement, MouseEvent>,
-    itemIdentifier: PieItemIdentifier,
-    item: DefaultizedPieValueType,
+    _event: React.MouseEvent<SVGPathElement, MouseEvent>, 
+    pieItemIdentifier: PieItemIdentifier,
+    _item: DefaultizedPieValueType 
   ) => {
-    // Check if seriesId is a string before using slice
-    let itemId: string | number;
+    // Convert 'seriesId' to string before slicing
+    let itemId = pieItemIdentifier.seriesId.toString().slice(-1);
   
-    if (typeof itemIdentifier.seriesId === 'string') {
-      itemId = itemIdentifier.seriesId.slice(-1); // Slice the last character if it's a string
-    } else {
-      // If it's a number, you can assign it directly
-      itemId = itemIdentifier.seriesId;
-    }
-  
-    // Convert itemId to number if it's still a string, and continue
-    const numericItemId = Number(itemId);
-  
-    if (numericItemId > 2) {
+    // Convert 'itemId' back to a number if needed
+    if (parseInt(itemId) > 2) {
       setHighlight(
-        <span className="text-yellow-500">
-          {`${data[numericItemId - 3][0].label} - ${
-            data[numericItemId - 3][0].value * 100
-          }%`}
+        <span className='text-yellow-500'>
+          {`${data[parseInt(itemId) - 3][0].label} - ${data[parseInt(itemId) - 3][0].value * 100}%`}
         </span>
       );
   
